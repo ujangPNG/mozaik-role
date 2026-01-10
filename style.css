@@ -1,0 +1,137 @@
+/* Reset dasar */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Video Background */
+#myVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: contain; 
+    background: black; /* Penting biar area kosong tetap hitam */
+}
+
+/* Container Utama */
+.clock-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    text-align: center;
+    color: white;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    
+    /* Area hover diperluas & kursor jadi pointer */
+    padding: 60px 100px;
+    border-radius: 20px;
+    cursor: pointer; 
+    
+    /* Transisi cuma buat efek zoom dikit */
+    transition: transform 0.3s ease;
+}
+
+/* Efek Hover Container: DIHAPUS agar tidak zoom */
+.clock-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    text-align: center;
+    color: white;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    
+    /* Padding diperkecil agar tidak menghalangi area lain */
+    padding: 20px;
+    border-radius: 20px;
+}
+
+/* Tanda interaktif per elemen */
+#line-time, #line-day, #line-date {
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* --- TAMPILAN FONTS --- */
+
+/* komen font family di bawah jgn di apus, anggep aja variasi kalo bosen */
+#line-time {
+    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: -10px;
+    font-weight: 400;
+}
+
+#line-day {
+    font-family: 'Courier New', 'Consolas', 'Lucida Console', Courier, monospace;
+    /* font-family: 'Great Vibes', cursive; */
+    font-size: 8rem;
+    font-weight: 400;
+    color: #e0e0e0;
+    line-height: 1.2;
+    margin: -10px 0;
+}
+
+#line-date {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: -10px;
+}
+
+/* --- SLOT MACHINE ANIMATION --- */
+.hover-char {
+    display: inline-block;
+    text-align: center;
+    vertical-align: bottom;
+    height: 1.1em; /* Prevent collapse during innerHTML swap */
+    line-height: 1.1em;
+    /* Width will be set via JS to match original character width */
+}
+
+.slot-wrapper {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    vertical-align: bottom;
+    height: 1.1em; /* Tinggi fix 1 baris */
+    line-height: 1.1em;
+    width: 100%; /* Fill parent (.hover-char) */
+}
+
+.slot-reel {
+    display: block;
+}
+
+.slot-char {
+    display: block;
+    text-align: center;
+    height: 1.1em; 
+    line-height: 1.1em;
+    width: 100%;
+    overflow: hidden; /* Clip wide random characters */
+}
